@@ -1,0 +1,17 @@
+apply plugin: 'war'
+apply from: 'gretty.gradle'
+apply plugin: 'idea'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:+'
+    compile 'commons-configuration:commons-configuration:+'
+    compile 'org.thymeleaf:thymeleaf-spring4:+'
+    compile 'org.thymeleaf:thymeleaf:3.0.9.RELEASE'
+}
+
+
