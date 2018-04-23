@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
@@ -16,12 +19,13 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import javax.servlet.ServletContext;
 
 
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.jh3.springmvc")
-public class ThymeleafConfig implements WebMvcConfigurer, ApplicationContextAware {
+public class ThymeleafConfig implements WebMvcConfigurer,ApplicationContextAware {
 
     private ApplicationContext appContext;
 
@@ -54,6 +58,18 @@ public class ThymeleafConfig implements WebMvcConfigurer, ApplicationContextAwar
         resRes.setTemplateMode(TemplateMode.HTML);
         resRes.setSuffix(".html");
         return resRes;
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/").setCachePeriod(3600)
+                .resourceChain(true).addResolver(new PathResourceResolver());
     }
 
 }
