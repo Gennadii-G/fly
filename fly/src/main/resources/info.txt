@@ -1,0 +1,32 @@
+autowired на коннструкторы
+какие бывают контексты, циклы итд
+жизненый цикл бина и его скоупы
+lookup - вариации реализаций
+проксирование бинов
+пост процессоры - (написать свой)
+профили посмотреть
+
+
+в общем нужно знать вот такие вещи
+в общих чертах по диспатчер сервлету
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet
+
+фильтры
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#filters
+
+аннотации, это важно
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-controller
+
+так же полезна вещь
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-uri-building
+
+асинхронные запросы не обязательно, нужно просто знать что есть, а когда надо будет уже изучишь
+
+CORS знать тоже круто, но сейчас не обязательно
+
+вью технологии ну тут хотя бы jsp, jstl, xml, thymeleaf
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view
+
+конфигурацию знать надо
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config
+тут в часности, валидация, интерцепторы, конвертеры и уметь конфигурить через xml и код
